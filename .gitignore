@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets and local config: never commit credentials
+.env
+.env.*
+!.env.example
+*.pgpass
+credentials*.json
+
+# Power BI local artefacts (commit the .pbix only if you choose to share it)
+*.pbix.bak
+.pbi/
+*.pbix.lock
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

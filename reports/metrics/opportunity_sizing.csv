@@ -1,0 +1,4 @@
+scenario,basis,additional_purchases,aov_used,additional_revenue,period
+Mobile checkout→purchase rate matches desktop,866 mobile checkouts × (57.5% − 37.0%),177.9747995418098,68.38954545454546,12171.615643028217,"Jan–Jun 2025 (observed, synthetic)"
+Mobile cart→checkout rate matches desktop (at current mobile checkout completion),"1,960 mobile carts × (52.9% − 44.2%) × 37.0%",62.96168743696517,68.38954545454546,4305.921184865213,"Jan–Jun 2025 (observed, synthetic)"
+Paid Social CVR closes half the gap to site average,"7,071 sessions × (1.87% − 1.19%)",48.109750991011104,75.57035714285715,3635.671064444635,"Jan–Jun 2025 (observed, synthetic)"

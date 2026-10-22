@@ -1,0 +1,85 @@
+{
+  "stage": "processed",
+  "tables": {
+    "sessions": {
+      "rows": 35822,
+      "columns": [
+        "session_id",
+        "visitor_id",
+        "session_start",
+        "traffic_source",
+        "marketing_medium",
+        "campaign",
+        "device_category",
+        "country",
+        "landing_page",
+        "engaged_session"
+      ],
+      "missing_required_columns": [],
+      "missing_values": {},
+      "exact_duplicate_rows": 0,
+      "duplicate_primary_keys": 0,
+      "null_primary_keys": 0,
+      "unparseable_timestamps": 0,
+      "timestamp_min": "2025-01-01 00:02:20",
+      "timestamp_max": "2025-06-30 23:58:16",
+      "non_standard_labels": {}
+    },
+    "events": {
+      "rows": 160474,
+      "columns": [
+        "event_id",
+        "session_id",
+        "event_timestamp",
+        "event_name",
+        "page_path",
+        "product_id"
+      ],
+      "missing_required_columns": [],
+      "missing_values": {
+        "product_id": 115444
+      },
+      "exact_duplicate_rows": 0,
+      "duplicate_primary_keys": 0,
+      "null_primary_keys": 0,
+      "unparseable_timestamps": 0,
+      "timestamp_min": "2025-01-01 00:02:20",
+      "timestamp_max": "2025-07-01 00:00:33",
+      "non_standard_labels": {}
+    },
+    "transactions": {
+      "rows": 913,
+      "columns": [
+        "transaction_id",
+        "session_id",
+        "transaction_timestamp",
+        "revenue",
+        "currency",
+        "transaction_status"
+      ],
+      "missing_required_columns": [],
+      "missing_values": {},
+      "exact_duplicate_rows": 0,
+      "duplicate_primary_keys": 0,
+      "null_primary_keys": 0,
+      "unparseable_timestamps": 0,
+      "timestamp_min": "2025-01-01 03:51:01",
+      "timestamp_max": "2025-06-30 22:54:01",
+      "non_standard_labels": {}
+    }
+  },
+  "relationships": {
+    "orphan_events (session_id not in sessions)": 0,
+    "orphan_transactions (session_id not in sessions)": 0,
+    "events_before_session_start": 0,
+    "transactions_before_session_start": 0,
+    "revenue_unparseable": 0,
+    "revenue_negative": 0,
+    "revenue_zero": 0,
+    "test_transactions": 0,
+    "sessions_with_purchase_before_checkout": 25,
+    "sessions_with_transaction_but_no_purchase_event": 13,
+    "sessions_with_purchase_event_but_no_valid_transaction": 13,
+    "sessions_without_session_start_event": 0
+  }
+}

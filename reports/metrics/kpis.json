@@ -1,0 +1,22 @@
+{
+  "kpis": {
+    "total_sessions": 35822,
+    "total_visitors": 25729,
+    "engaged_sessions": 25853,
+    "engagement_rate": 0.7217073306906371,
+    "purchasing_sessions": 913,
+    "purchase_conversion_rate": 0.025487130813466586,
+    "total_transactions": 913,
+    "total_revenue": 64206.74,
+    "net_revenue": 62536.95,
+    "average_order_value": 70.32501642935378,
+    "revenue_per_session": 1.7923828931941264
+  },
+  "funnel_reconciliation": {
+    "purchasing_sessions_transaction_based": 913,
+    "funnel_purchase_stage_event_based": 888,
+    "purchase_event_before_checkout_sessions": 25,
+    "transaction_without_purchase_event": 13,
+    "ordered_purchase_without_valid_transaction": 13
+  }
+}

@@ -1,0 +1,29 @@
+ device_label | sessions | share_of_sessions | engagement_rate | purchasing_sessions | conversion_rate | revenue  | share_of_revenue | revenue_per_session | average_order_value | checkout_completion_rate | funnel_completion_rate 
+--------------+----------+-------------------+-----------------+---------------------+-----------------+----------+------------------+---------------------+---------------------+--------------------------+------------------------
+ Desktop      |    13733 |            0.3845 |          0.7265 |                 516 |          0.0376 | 36203.01 |           0.5664 |                2.64 |               70.16 |                   0.5750 |                 0.0366
+ Mobile       |    19832 |            0.5553 |          0.7183 |                 330 |          0.0166 | 22568.55 |           0.3531 |                1.14 |               68.39 |                   0.3695 |                 0.0161
+ Tablet       |     2150 |            0.0602 |          0.7214 |                  62 |          0.0288 |  5146.81 |           0.0805 |                2.39 |               83.01 |                   0.5865 |                 0.0284
+(3 rows)
+
+ channel_group  | desktop_sessions | mobile_sessions | desktop_cvr | mobile_cvr | mobile_to_desktop_ratio 
+----------------+------------------+-----------------+-------------+------------+-------------------------
+ Organic Social |              354 |            1255 |      0.0198 |     0.0040 |                   0.201
+ Email          |             1030 |            1217 |      0.0845 |     0.0378 |                   0.447
+ Organic Search |             5103 |            5642 |      0.0278 |     0.0135 |                   0.484
+ Paid Search    |             2421 |            2836 |      0.0553 |     0.0279 |                   0.503
+ Paid Social    |             1444 |            5188 |      0.0166 |     0.0089 |                   0.533
+ Direct         |             2640 |            2854 |      0.0394 |     0.0214 |                   0.543
+ Referral       |              741 |             840 |      0.0243 |     0.0202 |                   0.833
+(7 rows)
+
+ channel_group  | mobile_share | desktop_share | tablet_share 
+----------------+--------------+---------------+--------------
+ Paid Social    |       0.7337 |        0.2042 |       0.0591
+ Organic Social |       0.7280 |        0.2053 |       0.0638
+ Email          |       0.5073 |        0.4293 |       0.0600
+ Paid Search    |       0.5060 |        0.4319 |       0.0592
+ Referral       |       0.4953 |        0.4369 |       0.0660
+ Organic Search |       0.4915 |        0.4445 |       0.0608
+ Direct         |       0.4881 |        0.4515 |       0.0575
+(7 rows)
+

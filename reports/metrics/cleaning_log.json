@@ -1,0 +1,180 @@
+{
+  "rows_out": {
+    "fact_sessions": 35822,
+    "fact_events": 160474,
+    "fact_transactions": 913,
+    "dim_date": 182,
+    "dim_traffic_source": 17,
+    "dim_device": 4,
+    "dim_landing_page": 10,
+    "dim_funnel_stage": 5
+  },
+  "quarantined": {
+    "events": 150,
+    "transactions": 33
+  },
+  "quarantined_revenue": 562.09,
+  "steps": [
+    {
+      "step": "parse_timestamps",
+      "table": "sessions",
+      "rows_affected": 0,
+      "decision": "Parsed mixed ISO-8601 formats ('YYYY-MM-DD HH:MM:SS' and 'YYYY-MM-DDTHH:MM:SSZ') as UTC.",
+      "rationale": "Two export formats were mixed in one column; both represent UTC."
+    },
+    {
+      "step": "standardise_labels",
+      "table": "sessions",
+      "rows_affected": 1076,
+      "decision": "Trimmed, lower-cased and mapped aliases in `traffic_source`.",
+      "rationale": "Case/spelling variants would split one channel or device into several groups."
+    },
+    {
+      "step": "standardise_labels",
+      "table": "sessions",
+      "rows_affected": 717,
+      "decision": "Trimmed, lower-cased and mapped aliases in `marketing_medium`.",
+      "rationale": "Case/spelling variants would split one channel or device into several groups."
+    },
+    {
+      "step": "standardise_labels",
+      "table": "sessions",
+      "rows_affected": 893,
+      "decision": "Trimmed, lower-cased and mapped aliases in `device_category`.",
+      "rationale": "Case/spelling variants would split one channel or device into several groups."
+    },
+    {
+      "step": "normalise_landing_page",
+      "table": "sessions",
+      "rows_affected": 1682,
+      "decision": "Removed query strings (e.g. ?utm_source=...) and trailing slashes from landing_page.",
+      "rationale": "UTM parameters and slashes create duplicate page rows for the same URL."
+    },
+    {
+      "step": "fill_missing_device",
+      "table": "sessions",
+      "rows_affected": 107,
+      "decision": "Missing device_category set to 'unknown'; sessions retained.",
+      "rationale": "The session itself is valid; deleting it would understate traffic. 'unknown' is reported separately."
+    },
+    {
+      "step": "fill_missing_country",
+      "table": "sessions",
+      "rows_affected": 358,
+      "decision": "Missing country set to '(not set)'; sessions retained.",
+      "rationale": "Country is descriptive only and not used in KPI denominators."
+    },
+    {
+      "step": "fill_missing_campaign",
+      "table": "sessions",
+      "rows_affected": 20770,
+      "decision": "Missing campaign set to '(not set)'.",
+      "rationale": "Expected: organic, direct and referral traffic has no campaign. This is not an error."
+    },
+    {
+      "step": "drop_exact_duplicates",
+      "table": "sessions",
+      "rows_affected": 40,
+      "decision": "Dropped rows identical after parsing/standardisation.",
+      "rationale": "Re-sent tracking payloads; some duplicates differed only in timestamp text format, so de-duplication is done after parsing rather than on raw strings."
+    },
+    {
+      "step": "drop_conflicting_duplicate_ids",
+      "table": "sessions",
+      "rows_affected": 0,
+      "decision": "Kept the earliest record for any session_id still duplicated.",
+      "rationale": "session_id must be unique."
+    },
+    {
+      "step": "standardise_event_names",
+      "table": "events",
+      "rows_affected": 3236,
+      "decision": "Normalised event names (case, spaces, hyphens) and mapped aliases (pageview\u2192page_view, view_item\u2192product_view, checkout_start\u2192begin_checkout).",
+      "rationale": "Funnel stages are identified by event name; variants would silently drop sessions from stages."
+    },
+    {
+      "step": "drop_exact_duplicates",
+      "table": "events",
+      "rows_affected": 803,
+      "decision": "Dropped rows identical after parsing/standardisation.",
+      "rationale": "Duplicate hits would inflate event counts (session-based stage counts are unaffected)."
+    },
+    {
+      "step": "drop_conflicting_duplicate_ids",
+      "table": "events",
+      "rows_affected": 0,
+      "decision": "Kept first record per event_id.",
+      "rationale": "event_id must be unique."
+    },
+    {
+      "step": "quarantine_orphan_events",
+      "table": "events",
+      "rows_affected": 150,
+      "decision": "Moved events whose session_id is absent from the sessions table to quarantine_events.csv.",
+      "rationale": "Without a session they have no channel/device/landing page and cannot be attributed."
+    },
+    {
+      "step": "standardise_labels",
+      "table": "transactions",
+      "rows_affected": 19,
+      "decision": "Lower-cased transaction_status and upper-cased currency codes.",
+      "rationale": "Case variants of the same value."
+    },
+    {
+      "step": "drop_exact_duplicates",
+      "table": "transactions",
+      "rows_affected": 30,
+      "decision": "Dropped rows identical after parsing.",
+      "rationale": "Duplicate order confirmations would double-count revenue."
+    },
+    {
+      "step": "drop_conflicting_duplicate_ids",
+      "table": "transactions",
+      "rows_affected": 0,
+      "decision": "Kept first record per transaction_id.",
+      "rationale": "transaction_id must be unique."
+    },
+    {
+      "step": "quarantine_test_order",
+      "table": "transactions",
+      "rows_affected": 15,
+      "decision": "Moved to quarantine_transactions.csv (reason='test_order').",
+      "rationale": "Internal QA orders (status 'test') are not customer revenue."
+    },
+    {
+      "step": "quarantine_non_positive_revenue",
+      "table": "transactions",
+      "rows_affected": 8,
+      "decision": "Moved to quarantine_transactions.csv (reason='non_positive_revenue').",
+      "rationale": "Business rule: revenue must be > 0. Negative values on 'completed' orders look like sign errors, but the correct value cannot be confirmed, so they are excluded rather than 'fixed'."
+    },
+    {
+      "step": "quarantine_orphan_session_id",
+      "table": "transactions",
+      "rows_affected": 5,
+      "decision": "Moved to quarantine_transactions.csv (reason='orphan_session_id').",
+      "rationale": "Revenue cannot be attributed to a channel without a session."
+    },
+    {
+      "step": "quarantine_before_session_start",
+      "table": "transactions",
+      "rows_affected": 5,
+      "decision": "Moved to quarantine_transactions.csv (reason='before_session_start').",
+      "rationale": "A purchase cannot precede the session that produced it; record is unreliable."
+    },
+    {
+      "step": "retain_refunded",
+      "table": "transactions",
+      "rows_affected": 26,
+      "decision": "Refunded orders retained (flag is_refunded=1). 'Total Revenue' = gross purchase revenue; 'Net Revenue' excludes refunds.",
+      "rationale": "The purchase did happen (it is a conversion); refunds are a later event."
+    },
+    {
+      "step": "flag_sequence_violations",
+      "table": "fact_sessions",
+      "rows_affected": 25,
+      "decision": "Sessions whose purchase event precedes checkout are kept but do NOT reach the ordered-funnel purchase stage (flag purchase_sequence_violation=1). Their valid transactions still count as revenue.",
+      "rationale": "Likely client clock skew. Removing the money would understate revenue; counting the journey would violate the ordered funnel definition."
+    }
+  ]
+}

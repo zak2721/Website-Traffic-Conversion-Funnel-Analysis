@@ -1,0 +1,5 @@
+device_key,device_category,device_label,device_sort
+1,desktop,Desktop,1
+2,mobile,Mobile,2
+3,tablet,Tablet,3
+4,unknown,Unknown,4

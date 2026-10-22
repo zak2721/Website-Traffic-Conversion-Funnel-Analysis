@@ -1,0 +1,10 @@
+# Tested with Python 3.12 and the versions in brackets. Python 3.11+ required.
+pandas>=2.2          # tested 3.0.2
+numpy>=1.26          # tested 2.4.4
+matplotlib>=3.8      # tested 3.10.8
+seaborn>=0.13        # tested 0.13.2
+pytest>=8.0          # tested 9.1.1
+nbformat>=5.9        # tested 5.11.1
+nbconvert>=7.14      # tested 7.17.2
+ipykernel>=6.29      # tested 7.4.0
+jupyterlab>=4.0      # to open the notebooks interactively

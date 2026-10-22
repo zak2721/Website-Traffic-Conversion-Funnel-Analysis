@@ -1,0 +1,168 @@
+{
+  "stage": "raw",
+  "tables": {
+    "sessions": {
+      "rows": 35862,
+      "columns": [
+        "session_id",
+        "visitor_id",
+        "session_start",
+        "traffic_source",
+        "marketing_medium",
+        "campaign",
+        "device_category",
+        "country",
+        "landing_page",
+        "engaged_session"
+      ],
+      "missing_required_columns": [],
+      "missing_values": {
+        "campaign": 20770,
+        "device_category": 107,
+        "country": 358
+      },
+      "exact_duplicate_rows": 30,
+      "duplicate_primary_keys": 40,
+      "null_primary_keys": 0,
+      "unparseable_timestamps": 0,
+      "timestamp_min": "2025-01-01 00:02:20",
+      "timestamp_max": "2025-06-30 23:58:16",
+      "non_standard_labels": {
+        "traffic_source": {
+          "rows": 1076,
+          "examples": [
+            " google",
+            "(Direct)",
+            "Bing",
+            "FACEBOOK ",
+            "Facebook",
+            "GOOGLE",
+            "Google",
+            "IG",
+            "Instagram",
+            "Newsletter",
+            "PartnerBlog.com",
+            "TikTok"
+          ]
+        },
+        "marketing_medium": {
+          "rows": 717,
+          "examples": [
+            "CPC",
+            "Email",
+            "Organic",
+            "Paid Social",
+            "Referral",
+            "Social",
+            "e-mail",
+            "none",
+            "paid-social",
+            "ppc"
+          ]
+        },
+        "device_category": {
+          "rows": 893,
+          "examples": [
+            "DESKTOP ",
+            "Desktop",
+            "MOBILE",
+            "Mobile",
+            "Tablet",
+            "iPad",
+            "pc",
+            "smartphone"
+          ]
+        }
+      }
+    },
+    "events": {
+      "rows": 161427,
+      "columns": [
+        "event_id",
+        "session_id",
+        "event_timestamp",
+        "event_name",
+        "page_path",
+        "product_id"
+      ],
+      "missing_required_columns": [],
+      "missing_values": {
+        "product_id": 116124
+      },
+      "exact_duplicate_rows": 643,
+      "duplicate_primary_keys": 803,
+      "null_primary_keys": 0,
+      "unparseable_timestamps": 0,
+      "timestamp_min": "2025-01-01 00:02:20",
+      "timestamp_max": "2025-07-01 00:00:33",
+      "non_standard_labels": {
+        "event_name": {
+          "rows": 3236,
+          "examples": [
+            "ADD_TO_CART",
+            "Add To Cart",
+            "Begin Checkout",
+            "PAGE_VIEW",
+            "PURCHASE",
+            "Page View",
+            "Product View",
+            "Purchase",
+            "Session Start",
+            "add-to-cart",
+            "checkout_start",
+            "pageview"
+          ]
+        }
+      }
+    },
+    "transactions": {
+      "rows": 976,
+      "columns": [
+        "transaction_id",
+        "session_id",
+        "transaction_timestamp",
+        "revenue",
+        "currency",
+        "transaction_status"
+      ],
+      "missing_required_columns": [],
+      "missing_values": {},
+      "exact_duplicate_rows": 24,
+      "duplicate_primary_keys": 30,
+      "null_primary_keys": 0,
+      "unparseable_timestamps": 0,
+      "timestamp_min": "2025-01-01 03:51:01",
+      "timestamp_max": "2025-06-30 22:54:01",
+      "non_standard_labels": {
+        "transaction_status": {
+          "rows": 25,
+          "examples": [
+            "COMPLETED",
+            "REFUNDED",
+            "test"
+          ]
+        },
+        "currency": {
+          "rows": 19,
+          "examples": [
+            "usd"
+          ]
+        }
+      }
+    }
+  },
+  "relationships": {
+    "orphan_events (session_id not in sessions)": 150,
+    "orphan_transactions (session_id not in sessions)": 5,
+    "events_before_session_start": 0,
+    "transactions_before_session_start": 6,
+    "revenue_unparseable": 0,
+    "revenue_negative": 8,
+    "revenue_zero": 0,
+    "test_transactions": 15,
+    "sessions_with_purchase_before_checkout": 25,
+    "sessions_with_transaction_but_no_purchase_event": 38,
+    "sessions_with_purchase_event_but_no_valid_transaction": 8,
+    "sessions_without_session_start_event": 690
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "synthetic": true,
+  "disclaimer": "Synthetic data generated for a portfolio project. Not real company performance.",
+  "seed": 42,
+  "sessions_per_day_base": 185,
+  "date_range": [
+    "2025-01-01",
+    "2025-06-30"
+  ],
+  "generated_before_defects": {
+    "sessions": 35822,
+    "events": 160487,
+    "transactions": 926,
+    "visitors": 25729
+  },
+  "raw_row_counts": {
+    "sessions": 35862,
+    "events": 161427,
+    "transactions": 976
+  },
+  "injected_defects": {
+    "sessions_source_label_variants": 1074,
+    "sessions_medium_label_variants": 716,
+    "sessions_device_label_variants": 895,
+    "sessions_missing_device": 107,
+    "sessions_missing_country": 358,
+    "sessions_landing_page_query_or_slash": 1791,
+    "sessions_exact_duplicate_rows": 40,
+    "events_name_label_variants": 3209,
+    "events_purchase_before_checkout": 25,
+    "events_missing_purchase_event_with_transaction": 13,
+    "events_orphan_rows": 150,
+    "events_exact_duplicate_rows": 803,
+    "transactions_negative_revenue": 8,
+    "transactions_label_case_variants": 18,
+    "transactions_test_orders": 15,
+    "transactions_orphan_rows": 5,
+    "transactions_before_session_start": 5,
+    "transactions_exact_duplicate_rows": 30
+  }
+}

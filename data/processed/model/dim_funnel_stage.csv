@@ -1,0 +1,6 @@
+stage_order,stage_name,event_name
+1,Session,session_start
+2,Product view,product_view
+3,Add to cart,add_to_cart
+4,Checkout started,begin_checkout
+5,Purchase,purchase

@@ -1,0 +1,40 @@
+ stage_order |      stage       | sessions | pct_of_sessions | conversion_to_next | drop_off_rate | sessions_lost 
+-------------+------------------+----------+-----------------+--------------------+---------------+---------------
+           1 | Session          |    35822 |          1.0000 |             0.5409 |        0.4591 |         16445
+           2 | Product view     |    19377 |          0.5409 |             0.1993 |        0.8007 |         15516
+           3 | Add to cart      |     3861 |          0.1078 |             0.4794 |        0.5206 |          2010
+           4 | Checkout started |     1851 |          0.0517 |             0.4797 |        0.5203 |           963
+           5 | Purchase         |      888 |          0.0248 |                    |               |              
+(5 rows)
+
+         transition         | from_n | to_n  | sessions_lost | drop_off_rate | rank_absolute_loss | rank_pct_loss 
+----------------------------+--------+-------+---------------+---------------+--------------------+---------------
+ Session → Product view     |  35822 | 19377 |         16445 |        0.4591 |                  1 |             4
+ Product view → Add to cart |  19377 |  3861 |         15516 |        0.8007 |                  2 |             1
+ Add to cart → Checkout     |   3861 |  1851 |          2010 |        0.5206 |                  3 |             2
+ Checkout → Purchase        |   1851 |   888 |           963 |        0.5203 |                  4 |             3
+(4 rows)
+
+ device_label | sessions | product_view | add_to_cart | checkout | purchase | session_to_view | view_to_cart | cart_to_checkout | checkout_to_purchase | funnel_completion_rate 
+--------------+----------+--------------+-------------+----------+----------+-----------------+--------------+------------------+----------------------+------------------------
+ Desktop      |    13733 |         7597 |        1651 |      873 |      502 |          0.5532 |       0.2173 |           0.5288 |               0.5750 |                 0.0366
+ Mobile       |    19832 |        10568 |        1960 |      866 |      320 |          0.5329 |       0.1855 |           0.4418 |               0.3695 |                 0.0161
+ Tablet       |     2150 |         1158 |         239 |      104 |       61 |          0.5386 |       0.2064 |           0.4351 |               0.5865 |                 0.0284
+(3 rows)
+
+ channel_group  | sessions | session_to_view | view_to_cart | cart_to_checkout | checkout_to_purchase | funnel_completion_rate 
+----------------+----------+-----------------+--------------+------------------+----------------------+------------------------
+ Organic Search |    11480 |          0.4527 |       0.1816 |           0.4883 |               0.4816 |                 0.0193
+ Paid Social    |     7071 |          0.5712 |       0.1109 |           0.4799 |               0.3767 |                 0.0115
+ Direct         |     5847 |          0.5276 |       0.2532 |           0.4571 |               0.4762 |                 0.0291
+ Paid Search    |     5605 |          0.6576 |       0.2515 |           0.4714 |               0.5080 |                 0.0396
+ Email          |     2399 |          0.6115 |       0.3654 |           0.4869 |               0.5402 |                 0.0588
+ Organic Social |     1724 |          0.5696 |       0.0896 |           0.5000 |               0.2955 |                 0.0075
+ Referral       |     1696 |          0.5430 |       0.1488 |           0.5547 |               0.5132 |                 0.0230
+(7 rows)
+
+ sessions_with_purchase_event | sessions_reaching_ordered_purchase_stage | purchase_logged_before_checkout 
+------------------------------+------------------------------------------+---------------------------------
+                          913 |                                      888 |                              25
+(1 row)
+

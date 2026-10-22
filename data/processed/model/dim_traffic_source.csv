@@ -1,0 +1,18 @@
+traffic_source_key,traffic_source,marketing_medium,campaign,channel_group,source_medium
+1,(direct),(none),(not set),Direct,(direct) / (none)
+2,newsletter,email,abandoned_cart,Email,newsletter / email
+3,newsletter,email,weekly_newsletter,Email,newsletter / email
+4,bing,organic,(not set),Organic Search,bing / organic
+5,google,organic,(not set),Organic Search,google / organic
+6,instagram,social,(not set),Organic Social,instagram / social
+7,tiktok,social,(not set),Organic Social,tiktok / social
+8,google,cpc,brand_search,Paid Search,google / cpc
+9,google,cpc,generic_search,Paid Search,google / cpc
+10,facebook,paid_social,prospecting,Paid Social,facebook / paid_social
+11,facebook,paid_social,retargeting,Paid Social,facebook / paid_social
+12,facebook,paid_social,spring_sale,Paid Social,facebook / paid_social
+13,instagram,paid_social,prospecting,Paid Social,instagram / paid_social
+14,instagram,paid_social,retargeting,Paid Social,instagram / paid_social
+15,instagram,paid_social,spring_sale,Paid Social,instagram / paid_social
+16,dealsforum.com,referral,(not set),Referral,dealsforum.com / referral
+17,partnerblog.com,referral,(not set),Referral,partnerblog.com / referral

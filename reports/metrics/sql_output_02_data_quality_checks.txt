@@ -1,0 +1,103 @@
+  table_name  | total_rows | duplicate_primary_keys | exact_duplicate_rows 
+--------------+------------+------------------------+----------------------
+ sessions     |      35862 |                     40 |                   30
+ events       |     161427 |                    803 |                  643
+ transactions |        976 |                     30 |                   24
+(3 rows)
+
+ missing_campaign | missing_device | missing_country | missing_landing_page 
+------------------+----------------+-----------------+----------------------
+            20770 |            107 |             358 |                    0
+(1 row)
+
+   column_name    |     raw_value      | row_count 
+------------------+--------------------+-----------
+ device_category  | smartphone         |       166
+ device_category  | MOBILE             |       162
+ device_category  | Mobile             |       155
+ device_category  | DESKTOP            |       125
+ device_category  | Desktop            |       118
+ device_category  | pc                 |        93
+ device_category  | iPad               |        39
+ device_category  | Tablet             |        35
+ event_name       | Session Start      |       696
+ event_name       | pageview           |       539
+ event_name       | PAGE_VIEW          |       529
+ event_name       | Page View          |       504
+ event_name       | Product View       |       434
+ event_name       | view_item          |       399
+ event_name       | ADD_TO_CART        |        34
+ event_name       | add-to-cart        |        27
+ event_name       | Add To Cart        |        25
+ event_name       | Begin Checkout     |        16
+ event_name       | checkout_start     |        13
+ event_name       | Purchase           |        11
+ event_name       | PURCHASE           |         9
+ marketing_medium | Organic            |       244
+ marketing_medium | none               |       114
+ marketing_medium | paid-social        |        65
+ marketing_medium | Paid Social        |        62
+ marketing_medium | ppc                |        57
+ marketing_medium | CPC                |        53
+ marketing_medium | Referral           |        40
+ marketing_medium | Social             |        35
+ marketing_medium | e-mail             |        25
+ marketing_medium | Email              |        22
+ traffic_source   | GOOGLE             |       189
+ traffic_source   |  google            |       156
+ traffic_source   | Google             |       136
+ traffic_source   | direct             |       110
+ traffic_source   | Newsletter         |        81
+ traffic_source   | (Direct)           |        74
+ traffic_source   | Instagram          |        63
+ traffic_source   | Facebook           |        54
+ traffic_source   | IG                 |        51
+ traffic_source   | FACEBOOK           |        48
+ traffic_source   | Bing               |        37
+ traffic_source   | TikTok             |        31
+ traffic_source   | PartnerBlog.com    |        27
+ traffic_source   | www.dealsforum.com |        19
+(45 rows)
+
+ iso_t_format_rows | unexpected_format_rows 
+-------------------+------------------------
+              4320 |                      0
+(1 row)
+
+ orphan_events | orphan_transactions | negative_revenue | test_transactions | lowercase_currency 
+---------------+---------------------+------------------+-------------------+--------------------
+           150 |                   5 |                8 |                15 |                 19
+(1 row)
+
+ transaction_id | session_id |   transaction_ts    |  session_start_ts   
+----------------+------------+---------------------+---------------------
+ T0000655       | S0025751   | 2025-05-10 12:25:30 | 2025-05-11 10:25:30
+ T0000353       | S0013490   | 2025-03-14 16:19:47 | 2025-03-15 14:19:47
+ T0000206       | S0007641   | 2025-02-11 21:26:25 | 2025-02-12 11:26:25
+ T0000456       | S0018206   | 2025-04-03 12:35:29 | 2025-04-04 11:35:29
+ T0000820       | S0032215   | 2025-06-13 02:01:50 | 2025-06-13 13:01:50
+(5 rows)
+
+    entity     | sql_cleaned | python_cleaned 
+---------------+-------------+----------------
+ sessions      |       35822 |          35822
+ transactions  |         913 |            913
+ revenue_cents |     6420674 |        6420674
+(3 rows)
+
+ channel_group  | sql_cleaned | python_cleaned | match 
+----------------+-------------+----------------+-------
+ Direct         |        5847 |           5847 | t
+ Email          |        2399 |           2399 | t
+ Organic Search |       11480 |          11480 | t
+ Organic Social |        1724 |           1724 | t
+ Paid Search    |        5605 |           5605 | t
+ Paid Social    |        7071 |           7071 | t
+ Referral       |        1696 |           1696 | t
+(7 rows)
+
+ purchase_before_checkout_sessions | transaction_without_purchase_event | ordered_purchase_without_valid_transaction 
+-----------------------------------+------------------------------------+--------------------------------------------
+                                25 |                                 13 |                                         13
+(1 row)
+
