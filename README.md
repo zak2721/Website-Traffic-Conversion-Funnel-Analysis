@@ -160,11 +160,6 @@ The generated CSVs are also committed, so the Power BI model can be built withou
 └── screenshots/     Power BI report screenshots (added after building the report)
 ```
 
-## Limitations
-
-Synthetic data with designed-in effects; last-click session attribution; no ad-spend data (so no ROAS); six months only;
-observational comparisons (not causal). The Power BI report is specified but not included as a `.pbix`. Full list:
-[`reports/limitations.md`](reports/limitations.md).
 
 ## Future improvements
 
